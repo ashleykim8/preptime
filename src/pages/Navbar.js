@@ -9,7 +9,7 @@ function Navbar(){
             <h1 className="navbar-logo">PrepTime</h1>
             <ul className="navbar-menu">
               <li className="navbar-item">
-                <Link to="/home" className="navbar-link">Home</Link>
+                <Link to="/" className="navbar-link">Home</Link>
               </li>
               <li className="navbar-item">
                 <Link to="/about" className="navbar-link">About</Link>
