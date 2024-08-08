@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Username:', username);
     console.log('Password:', password);
+    navigate('/')
   };
 
   return (
@@ -37,6 +41,7 @@ function Login() {
         </div>
         <button type="submit" className="login-button">Login</button>
       </form>
+      <Link to="/register" className = 'register-link'>Or Register Here!</Link>
     </div>
   );
 }

@@ -20,7 +20,7 @@ function About() {
       <div className="team-member">
         <img src={person2Image} alt="Ashley" className="team-photo" />
         <div className="team-info">
-          <h3>Person 2</h3>
+          <h3>Ashley</h3>
           <p>
             Ashley is an amazing person. She is from Princeton, NJ. She is also a Computer Science-Mathematics joint major.
           </p>
