@@ -1,0 +1,126 @@
+.review-flashcards-container {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 55px;
+  height: 100%;
+  border-radius: 30px;
+  padding: 30px;
+  background-color: #fbfbfb;
+}
+
+.review-flashcards-container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333333;
+}
+
+.review-flashcard {
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.review-flashcard-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.review-flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.review-flashcard-front,
+.review-flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.review-flashcard-front {
+  background: #fbfbfb;
+  color: #333333;
+}
+
+.review-flashcard-back {
+  background: #f0f0f0;
+  color: #333333;
+  transform: rotateY(180deg);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.navigation-buttons button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #253677;
+  border: none;
+  border-radius: 4px;
+  color: #fbfbfb;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.navigation-buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.navigation-buttons button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.completion-message {
+  font-size: 1.1rem;
+  color: #333333;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.no-flashcards {
+  text-align: center;
+}
+
+.no-flashcards p {
+  font-size: 1.1rem;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #276237;
+  color: #fbfbfb;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #40a25a;
+}

@@ -2,14 +2,13 @@ import React from 'react';
 import'./Home.css'
 
 function Home(){
-    return (
-        <div className="Home">
-          <header className="Home-header">
-            <h1>Welcome to My React Website</h1>
-            <p>This is a simple home page created with React.</p>
-          </header>
-        </div>
-      );
+  return (
+    <div className="home-container">
+      <h1>Welcome to</h1>
+      <h2>PrepTime</h2>
+      <p>Please log in or register in order to have access to prep materials.</p>
+    </div>
+  );
 }
 
 export default Home;
