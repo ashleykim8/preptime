@@ -1,51 +1,50 @@
 /* Ensure the text color in the input fields is black */
 input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff; /* White background for the input field */
-    color: #000; /* Black text color */
-  }
-  
-  /* Optional styling for the register container */
-  .register-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff; /* White background for the container */
-    color: #000; /* Black text color for the container */
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #000; /* Black color for header text */
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #000; /* Black color for label text */
-  }
-  
-  .register-button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 4px;
-    color: white; /* White text color for the button */
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .register-button:hover {
-    background-color: #45a049;
-  }
-  
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff; /* White background for the input field */
+  color: #333333; /* Black text color */
+}
+
+/* Optional styling for the register container */
+.register-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for the container */
+  color: #000; /* Black text color for the container */
+}
+
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000; /* Black color for header text */
+}
+
+.register-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000; /* Black color for label text */
+}
+
+.register-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: white; /* White text color for the button */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #45a049;
+}

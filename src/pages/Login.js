@@ -41,7 +41,8 @@ function Login() {
         </div>
         <button type="submit" className="login-button">Login</button>
       </form>
-      <Link to="/register" className = 'register-link'>Or Register Here!</Link>
+      
+      <Link to="/register" className='register-link'>Or Register Here!</Link>
     </div>
   );
 }
