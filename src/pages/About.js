@@ -1,29 +1,26 @@
 import React from 'react';
 import './About.css';
-import otisImage from './Otis.jpeg'; // Adjust the path as needed
-import person2Image from './Ashley.jpeg'; // Adjust the path as needed
+import otisImage from './Otis.jpg'; // Adjust the path as needed
+import ashleyImage from './Ashley.jpg'; // Adjust the path as needed
 
 function About() {
   return (
     <div className="about-container">
       <h2>About Us</h2>
-      <div className="team-member">
-        <img src={otisImage} alt="Otis" className="team-photo" />
-        <div className="team-info">
-          <h3>Otis</h3>
-          <p>
-            Otis is from Seattle, WA. Otis is a Computer Science-Mathematics joint major, even though he shit on them
-            before.
-          </p>
+      <div className="team">
+        <div className="team-member">
+          <img src={otisImage} alt="[Otis Photo]" className="team-photo" />
+            <h3>Otis Golden</h3>
+            <p>
+              Otis Golden is a Junior at Harvey Mudd College, majoring in joint Computer Science-Mathematics. Otis is from Seattle, WA.
+            </p>
         </div>
-      </div>
-      <div className="team-member">
-        <img src={person2Image} alt="Ashley" className="team-photo" />
-        <div className="team-info">
-          <h3>Ashley</h3>
-          <p>
-            Ashley is an amazing person. She is from Princeton, NJ. She is also a Computer Science-Mathematics joint major.
-          </p>
+        <div className="team-member">
+          <img src={ashleyImage} alt="[Ashley Photo]" className="team-photo" />
+            <h3>Ashley Kim</h3>
+            <p>
+              Ashley Kim is a Junior at Harvey Mudd College, majoring in joint Computer Science-Mathematics. Ashley is from Princeton, NJ.
+            </p>
         </div>
       </div>
     </div>

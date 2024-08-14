@@ -43,6 +43,7 @@ function Login() {
       </Form>
   )}
 </Formik>
+ <Link to="/register" className='register-link'>Or Register Here!</Link>
 </div>
 );
 }
