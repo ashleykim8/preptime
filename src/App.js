@@ -10,8 +10,10 @@ import Flashcards from './pages/Flashcards';
 import ReviewFlashcards from './pages/ReviewFlashcards';
 import AccountSettings from './pages/AccountSettings';
 import UserButton from './objects/UserButton';
+import { useState } from 'react';
 
 function App(){
+=======
   const [flashcards, setFlashcards] = useState([]);
   return (
   <Router>
