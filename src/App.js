@@ -7,8 +7,14 @@ import Contact from './pages/Contact';
 import Register from './pages/Register'
 import AccountSettings from './pages/AccountSettings';
 import UserButton from './objects/UserButton';
+import { useState } from 'react';
 
 function App(){
+  const [username, setUsername] = useState('initialState')
+  const [password, setPassword] = useState('initialState')
+  const [email, setEmail] = useState('initialState')
+
+
   return (
   <Router>
     <Navbar />

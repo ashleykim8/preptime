@@ -22,4 +22,17 @@ router.post('/register',async (req, res) => {
   
 });
 
+router.post('/login', async (req, res) => {
+  const {username,password} = req.body
+
+    User.findOne({username: username, password:password})
+      .then((user)=>{
+        return (res.status(200).json(user));
+      })
+      .catch((err)=>{
+        return (res.status(400).json(err));
+    })
+  });
+
+
 module.exports = router;
