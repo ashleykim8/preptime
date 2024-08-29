@@ -8,11 +8,12 @@ import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Flashcards from './pages/Flashcards';
 import ReviewFlashcards from './pages/ReviewFlashcards';
+import FlashcardSet from './pages/FlashcardSets';
 import AccountSettings from './pages/AccountSettings';
 import UserButton from './objects/UserButton';
 
 function App(){
-  const [flashcards, setFlashcards] = useState([]);
+  const [flashcardSets, setFlashcardSets] = useState([]);
   return (
   <Router>
     <Navbar />
