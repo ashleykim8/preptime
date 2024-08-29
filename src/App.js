@@ -8,10 +8,12 @@ import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Flashcards from './pages/Flashcards';
 import ReviewFlashcards from './pages/ReviewFlashcards';
+import FlashcardSet from './pages/FlashcardSets';
 import AccountSettings from './pages/AccountSettings';
 import UserButton from './objects/UserButton';
 
 function App(){
+  const [flashcardSets, setFlashcardSets] = useState([]);
   const [flashcards, setFlashcards] = useState([]);
   const [user, setUser] = useState({username:'',password:'',email:''});
   return (
