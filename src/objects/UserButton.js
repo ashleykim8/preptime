@@ -20,9 +20,7 @@ function UserButton({user}) {
 
 
   return (
-    <div>
-      {userButton}
-    </div>
+      userButton
 
   );
 };

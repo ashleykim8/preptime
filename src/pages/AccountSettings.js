@@ -1,5 +1,4 @@
 import React from 'react';
-import './AccountSettings.css'
 const AccountSettings = ({user}) => {
   return (
     <div class="settings-container">
