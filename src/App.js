@@ -14,17 +14,19 @@ import UserButton from './objects/UserButton';
 
 function App(){
   const [flashcardSets, setFlashcardSets] = useState([]);
+  const [flashcards, setFlashcards] = useState([]);
+  const [user, setUser] = useState({username:'',password:'',email:''});
   return (
   <Router>
     <Navbar />
-    <UserButton /> 
+    <UserButton user = {user} /> 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/login" element={<Login/>} />
+      <Route path="/login" element={<Login setUser = {setUser} />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/account" element={<AccountSettings />} />
+      <Route path="/account" element={<AccountSettings user = {user}/>} />
       <Route path="/flashcards" element={<Flashcards flashcards={flashcards} setFlashcards={setFlashcards} />} />
       <Route path="/review-flashcards" element={<ReviewFlashcards flashcards={flashcards} />} />
       {/* Add other routes as needed */}

@@ -1,5 +1,5 @@
 const express = require('express')
-let User = require('../model/User');
+let Flashcard = require('../model/Flashcard');
 
 const router = express.Router()
 
@@ -10,11 +10,11 @@ router.get('/',(req, res) => {
 });
 
 router.post('/register',async (req, res) => {
-  const {username,password,email} = req.body
+  const {definitions,id} = req.body
 
   try{
-    const user = await  User.create({username,password,email})
-    res.status(200).json(user)
+    const flashcard = await  Flashcard.create({definitions,id})
+    res.status(200).json(flashcard)
   } catch(error){
     res.status(400).json({error:error.message})
   }
@@ -22,12 +22,13 @@ router.post('/register',async (req, res) => {
   
 });
 
-router.post('/login', async (req, res) => {
-  const {username,password} = req.body
+router.get('/find', async (req, res) => {
+  //get from query find?flashcardId=number
+  const id = req.query.flashcardId
 
-    User.findOne({username: username, password:password})
-      .then((user)=>{
-        return (res.status(200).json(user));
+    Flashcard.findOne({id:id})
+      .then((flashcard)=>{
+        return (res.status(200).json(flashcard));
       })
       .catch((err)=>{
         return (res.status(400).json(err));
