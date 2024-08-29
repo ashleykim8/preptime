@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import { Link } from 'react-router-dom';
 
-function Login() {
+function Login({setUser}) {
   const navigate = useNavigate();
   const initialValues = {username: '', password: ''};
   return(
@@ -12,7 +12,6 @@ function Login() {
   <Formik
     initialValues = {initialValues}
     onSubmit={async (values, { setSubmitting }) => {
-      console.log(values)
       const result = await fetch(
         'http://localhost:5000/api/users/login', {
             method: "POST",
@@ -24,7 +23,13 @@ function Login() {
                 'Content-Type': 'application/json'
             }
         })
-        console.log(result.json());
+        //ALWAYS AWAIT PROMISES
+        const userProfile = await result.json();
+        console.log(userProfile);
+        setUser({username:userProfile.username,
+                password:userProfile.password,
+                email:userProfile.email
+        });
         navigate('/');
     }}
 >

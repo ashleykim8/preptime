@@ -3,17 +3,27 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UserButton.css'; // Optional: for styling
 
-const UserButton = () => {
-  const navigate = useNavigate();
+function UserButton({user}) {
+  let userButton = null;
 
   const handleClick = () => {
-    navigate('/account-settings'); // Change the path as needed
+    navigate('/account'); // Change the path as needed
   };
 
+  if(user.username ){
+      userButton =     
+      <button className="user-button" onClick={handleClick}>
+      {user.username}
+      </button>;
+  }
+  const navigate = useNavigate();
+
+
   return (
-    <button className="user-button" onClick={handleClick}>
-      User
-    </button>
+    <div>
+      {userButton}
+    </div>
+
   );
 };
 

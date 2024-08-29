@@ -13,6 +13,6 @@ const flashCardSchema = new Schema({
     }
 });
 
-const User = model('Flashcard', flashCardSchema);
+const Flashcard = model('Flashcard', flashCardSchema);
 
 module.exports = Flashcard;
