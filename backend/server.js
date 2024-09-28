@@ -18,10 +18,10 @@ connection.once('open', () => {
 
 
 const usersRouter = require('./routes/user');
-const flashcardRouter = require('./routes/flashcard');
+const flashcardsRouter = require('./routes/flashcards');
 
 app.use('/api/users', usersRouter);
-app.use('/api/flashcard', flashcardRouter);
+app.use('/api/flashcards', flashcardsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

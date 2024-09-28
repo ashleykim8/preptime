@@ -18,6 +18,9 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
+  flashcard_ids: {
+    numbers: [Number]
+  }
 });
 
 const User = model('User', userSchema);
