@@ -15,7 +15,7 @@ function Navbar(){
             <Link to="/about" className="navbar-link">About</Link>
           </li>
           <li className="navbar-item">
-            <Link to="/flashcards" className="navbar-link">Flashcards</Link>
+            <Link to="/flashcardsets" className="navbar-link">Flashcard Sets</Link>
           </li>
           <li className="navbar-item">
             <Link to="/login" className="navbar-link">Login/Register</Link>

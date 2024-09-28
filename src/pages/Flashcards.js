@@ -1,27 +1,42 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './Flashcards.css';
 
-function Flashcards({ flashcards, setFlashcards }) {
+function Flashcards({ flashcardSets, setFlashcardSets }) {
+  const { setId } = useParams();
+  const currentSet = flashcardSets.find((set) => set.id === parseInt(setId));
+
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
 
   const addFlashcard = () => {
     if (question && answer) {
       const newFlashcard = { id: Date.now(), question, answer };
-      setFlashcards([...flashcards, newFlashcard]);
+      const updatedSet = {
+        ...currentSet,
+        flashcards: [...currentSet.flashcards, newFlashcard],
+      };
+      setFlashcardSets(flashcardSets.map((set) => (set.id === currentSet.id ? updatedSet : set)));
       setQuestion('');
       setAnswer('');
     }
   };
 
   const deleteFlashcard = (id) => {
-    setFlashcards(flashcards.filter(flashcard => flashcard.id !== id));
+    const updatedSet = {
+      ...currentSet,
+      flashcards: currentSet.flashcards.filter((flashcard) => flashcard.id !== id),
+    };
+    setFlashcardSets(flashcardSets.map((set) => (set.id === currentSet.id ? updatedSet : set)));
   };
+
+  if (!currentSet) {
+    return <div>Set not found</div>;
+  }
 
   return (
     <div className="flashcards-container">
-      <h2>Manage Flashcards</h2>
+      <h2>Manage Flashcards for {currentSet.name}</h2>
 
       <div className="add-flashcard">
         <input
@@ -40,7 +55,7 @@ function Flashcards({ flashcards, setFlashcards }) {
       </div>
 
       <div className="flashcard-list">
-        {flashcards.map((flashcard) => (
+        {currentSet.flashcards.map((flashcard) => (
           <div key={flashcard.id} className="flashcard">
             <div className="flashcard-inner">
               <div className="flashcard-front">
@@ -57,7 +72,7 @@ function Flashcards({ flashcards, setFlashcards }) {
         ))}
       </div>
 
-      <Link to="/review-flashcards" className="review-link">Review Flashcards</Link>
+      <Link to="/flashcardsets" className="back-to-sets-link">Back to Sets</Link>
     </div>
   );
 }
