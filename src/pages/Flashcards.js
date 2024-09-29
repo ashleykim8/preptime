@@ -72,7 +72,8 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
         ))}
       </div>
 
-      <Link to="/flashcardsets" className="back-to-sets-link">Back to Sets</Link>
+      <Link to={`/reviewflashcards/${currentSet.id}`} className="reviewflashcardslink">Review Flashcards</Link>
+      <Link to="/flashcardsets" className="backtosetslink">Back to Sets</Link>
     </div>
   );
 }

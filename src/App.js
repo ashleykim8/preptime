@@ -28,7 +28,7 @@ function App(){
       <Route path="/account" element={<AccountSettings user = {user}/>} />
       <Route path="/flashcardsets" element={<FlashcardSets flashcardSets={flashcardSets} setFlashcardSets={setFlashcardSets} />} />
       <Route path="/flashcards/:setId" element={<Flashcards flashcardSets={flashcardSets} setFlashcardSets={setFlashcardSets} />} />
-      <Route path="/reviewflashcards/:setId" element={<ReviewFlashcards sets={flashcardSets} />} />
+      <Route path="/reviewflashcards/:setId" element={<ReviewFlashcards flashcardSets={flashcardSets} />} />
     </Routes>
   </Router>
 );
