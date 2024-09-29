@@ -8,13 +8,12 @@ import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Flashcards from './pages/Flashcards';
 import ReviewFlashcards from './pages/ReviewFlashcards';
-import FlashcardSet from './pages/FlashcardSets';
+import FlashcardSets from './pages/FlashcardSets';
 import AccountSettings from './pages/AccountSettings';
 import UserButton from './objects/UserButton';
 
 function App(){
   const [flashcardSets, setFlashcardSets] = useState([]);
-  const [flashcards, setFlashcards] = useState([]);
   const [user, setUser] = useState({username:'',password:'',email:''});
   return (
   <Router>
@@ -27,9 +26,9 @@ function App(){
       <Route path="/contact" element={<Contact />} />
       <Route path="/register" element={<Register />} />
       <Route path="/account" element={<AccountSettings user = {user}/>} />
-      <Route path="/flashcards" element={<Flashcards flashcards={flashcards} setFlashcards={setFlashcards} />} />
-      <Route path="/review-flashcards" element={<ReviewFlashcards flashcards={flashcards} />} />
-      {/* Add other routes as needed */}
+      <Route path="/flashcardsets" element={<FlashcardSets flashcardSets={flashcardSets} setFlashcardSets={setFlashcardSets} />} />
+      <Route path="/flashcards/:setId" element={<Flashcards flashcardSets={flashcardSets} setFlashcardSets={setFlashcardSets} />} />
+      <Route path="/reviewflashcards/:setId" element={<ReviewFlashcards sets={flashcardSets} />} />
     </Routes>
   </Router>
 );
