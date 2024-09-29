@@ -21,7 +21,7 @@ function FlashcardSets({ flashcardSets, setFlashcardSets }) {
         <input
           type="text"
           placeholder="Enter set name"
-          value={setSetName}
+          value={setName}
           onChange={(e) => setSetName(e.target.value)}
         />
         <button onClick={addSet}>Add Set</button>
