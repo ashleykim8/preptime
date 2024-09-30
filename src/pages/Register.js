@@ -14,7 +14,7 @@ function Register() {
     },
     onSubmit: (values) =>{
       let result = fetch(
-        'http://localhost:5000/api/users/register', {
+        'http://localhost:8080/api/users/register', {
             method: "POST",
             body: JSON.stringify({ 
               username:formik.values.username, 

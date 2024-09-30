@@ -30,7 +30,7 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
 
   async function submitSet() {
     await fetch(
-      'http://localhost:5000/api/flashcards/register', {
+      'http://localhost:8080/api/flashcards/register', {
           method: "POST",
           body: JSON.stringify({ 
             definitions:currentSet.flashcards,
