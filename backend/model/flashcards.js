@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const flashCardsSchema = new Schema({
-    definitions:{
-        type: Map,
-        of: String
-    },
+    definitions:[{
+        id: Number,
+        question: String,
+        answer:String
+    }],
     id:{
         type: Number,
         required:true
