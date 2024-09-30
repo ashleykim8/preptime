@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import './Flashcards.css';
 
 function Flashcards({ flashcardSets, setFlashcardSets }) {
+  const navigate = useNavigate();
   const { setId } = useParams();
   const currentSet = flashcardSets.find((set) => set.id === parseInt(setId));
 
@@ -11,11 +12,8 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
 
   const addFlashcard = () => {
     if (question && answer) {
-      const newFlashcard = { id: Date.now(), question, answer };
-      const updatedSet = {
-        ...currentSet,
-        flashcards: [...currentSet.flashcards, newFlashcard],
-      };
+      const newFlashcard = { id: Date.now(), question: question, answer: answer };
+      const updatedSet = { ...currentSet, flashcards: [...currentSet.flashcards, newFlashcard] };
       setFlashcardSets(flashcardSets.map((set) => (set.id === currentSet.id ? updatedSet : set)));
       setQuestion('');
       setAnswer('');
@@ -29,6 +27,22 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
     };
     setFlashcardSets(flashcardSets.map((set) => (set.id === currentSet.id ? updatedSet : set)));
   };
+
+  async function submitSet() {
+    await fetch(
+      'http://localhost:5000/api/flashcards/register', {
+          method: "POST",
+          body: JSON.stringify({ 
+            definitions:currentSet.flashcards,
+            name:currentSet.name
+          }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      })
+      console.log(currentSet)
+      navigate(`/reviewflashcards/${currentSet.id}`);
+  }
 
   if (!currentSet) {
     return <div>Set not found</div>;
@@ -71,8 +85,9 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
           </div>
         ))}
       </div>
-
-      <Link to={`/reviewflashcards/${currentSet.id}`} className="reviewflashcardslink">Review Flashcards</Link>
+      <div className="submit-set">
+        <button onClick={submitSet}>Submit Set</button>
+      </div>
       <Link to="/flashcardsets" className="backtosetslink">Back to Sets</Link>
     </div>
   );
