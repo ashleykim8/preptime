@@ -1,106 +1,34 @@
-.flashcard-set-container {
-  border: 2px solid red;  /* for visibility */
-  padding: 10px;
+.flashcard-sets-container {
+  max-width: 920px;
+  width: 100%;
+  margin: 55px;
+  padding: 30px;
+  color: #333333;
+  border-radius: 30px;
+  background-color: #fbfbfb;
+  box-shadow: 0 8px 16px rgba(5, 10, 39, 0.492);
 }
 
-.flashcard-set-item {
-  border: 1px solid blue; /* for visibility */
-  margin: 10px;
-}  
+.flashcard-sets-container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-.flashcard-sets-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.add-set {
   margin-bottom: 20px;
-}
-
-.flashcard-sets-header h2 {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.create-set-btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.create-set-btn:hover {
-  background-color: #45a049;
-}
-
-.flashcard-set-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.flashcard-set {
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.flashcard-set:hover {
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
-}
-
-.flashcard-set-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.flashcard-set-description {
-  font-size: 1rem;
-  color: #777;
-}
-
-.flashcard-set-footer {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flashcard-set-button {
-  background-color: #007bff;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.flashcard-set-button:hover {
-  background-color: #0056b3;
 }
 
 .add-set input {
   width: 100%;
   padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   margin-bottom: 10px;
-  font-size: 16px;
-  color: #333333;
 }
 
 .add-set button {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
   background-color: #253677;
   border: none;
   border-radius: 4px;
@@ -109,3 +37,42 @@
   cursor: pointer;
 }
 
+.set-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.set-item {
+  width: 200px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 10px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.set-name {
+  font-size: 0.9rem;
+  word-wrap: break-word;  
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+
+.flashcard-look {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f6f7ff;
+  box-shadow: 0 2px 4px rgba(5, 10, 39, 0.492);
+  border-radius: 8px;
+}
+
+.flashcard-look:hover {
+  box-shadow: 0 8px 16px rgba(5, 10, 39, 0.492);
+}

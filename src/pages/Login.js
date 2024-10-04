@@ -37,17 +37,20 @@ function Login({setUser}) {
       <Form>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
-          <Field name="username" placeholder="Jane" />
+          <Field name="username" />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password:</label>
-          <Field name="password" placeholder="Doe" />
+          <Field name="password" type="password" />
         </div>
-        <button type="submit" className="login-button">login</button>
+        <button type="submit" className="login-button">LOGIN</button>
       </Form>
   )}
 </Formik>
- <Link to="/register" className='register-link'>Or Register Here!</Link>
+  <br></br>
+  <center>
+    Need an account? <Link to="/register" className='register-link'>SIGN UP</Link>
+  </center>
 </div>
 );
 }
