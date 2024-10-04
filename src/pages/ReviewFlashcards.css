@@ -117,11 +117,11 @@
   font-size: 1rem;
   border: none;
   border-radius: 5px;
-  background-color: #276237;
+  background-color: #448d51;
   color: #fbfbfb;
   cursor: pointer;
 }
 
 .back-button:hover {
-  background-color: #40a25a;
+  background-color: #42be59;
 }
