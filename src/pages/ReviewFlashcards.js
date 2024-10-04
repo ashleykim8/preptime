@@ -29,7 +29,7 @@ function ReviewFlashcards({ flashcardSets }) {
   };
 
   const handleBackToFlashcards = () => {
-    navigate(`/flashcards/${currentSet.id}`);
+    navigate(`/flashcardsets`);
   };
 
   if (!currentSet) {
@@ -75,7 +75,7 @@ function ReviewFlashcards({ flashcardSets }) {
           )}
           <div className="action-buttons">
             <button onClick={handleBackToFlashcards} className="back-button">
-              Back to Flashcards
+            Back to Flashcard Sets
             </button>
           </div>
         </>
@@ -83,7 +83,7 @@ function ReviewFlashcards({ flashcardSets }) {
         <div className="no-flashcards">
           <p>No flashcards to review.</p>
           <button onClick={handleBackToFlashcards} className="back-button">
-            Back to Flashcards
+            Back to Flashcard Sets
           </button>
         </div>
       )}

@@ -111,7 +111,7 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
         ))}
       </div>
       <div className="submit-set">
-        <button onClick={submitSet} className="submit-button" >Submit Set</button>
+        <button onClick={submitSet} className="submit-button" >Review Set</button>
       </div>
       <Link to="/flashcardsets" className="backtosets-link">Back to Sets</Link>
     </div>
