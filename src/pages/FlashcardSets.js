@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './FlashcardSets.css';
 
 function FlashcardSets({ flashcardSets, setFlashcardSets }) {
-    const [setName, setSetName] = useState('')
+  const [setName, setSetName] = useState('');
+  const navigate = useNavigate();
 
-    const addSet = () => {
-        if (setName) {
-            const newSet = { id: Date.now(), name: setName, flashcards: [] };
-            setFlashcardSets([...flashcardSets, newSet]);
-            setSetName('');
-        }
-    };
+  const addSet = () => {
+      if (setName) {
+          const newSet = { id: Date.now(), name: setName, flashcards: [] };
+          setFlashcardSets([...flashcardSets, newSet]);
+          setSetName('');
+      }
+  };
 
-    return (
-        <div className="flashcard-sets-container">
-      <h2>Manage Flashcard Sets</h2>
+  const handleSetClick = (id) => {
+    navigate(`/flashcards/${id}`);
+  };
 
+  return (
+    <div className="flashcard-sets-container">
+      <h2>Flashcard Sets</h2>
       <div className="add-set">
         <input
           type="text"
@@ -29,8 +33,12 @@ function FlashcardSets({ flashcardSets, setFlashcardSets }) {
 
       <div className="set-list">
         {flashcardSets.map((set) => (
-          <div key={set.id} className="set-item">
-            <Link to={`/flashcards/${set.id}`}>{set.name}</Link>
+          <div 
+            key={set.id} 
+            className="set-item flashcard-look" 
+            onClick={() => handleSetClick(set.id)}
+          >
+            <div className="set-name">{set.name}</div>
           </div>
         ))}
       </div>

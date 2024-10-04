@@ -18,7 +18,7 @@ function Navbar(){
             <Link to="/flashcardsets" className="navbar-link">Flashcard Sets</Link>
           </li>
           <li className="navbar-item">
-            <Link to="/login" className="navbar-link">Login/Register</Link>
+            <Link to="/login" className="navbar-link">Login</Link>
           </li>
           <li className="navbar-item">
             <Link to="/contact" className="navbar-link">Contact</Link>

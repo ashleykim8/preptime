@@ -1,9 +1,9 @@
 .contact-container {
   max-width: 400px;
   width: 100%;
-  margin-top: 50px;
   border-radius: 30px;
   padding: 30px;
+  color: #333333;
   box-shadow: 0 8px 16px rgba(5, 10, 39, 0.492);
   background-color: #fbfbfb;
 }
@@ -11,37 +11,34 @@
 .contact-container h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333333;
 }
 
 .contact-container label {
   display: block;
   margin-bottom: 5px;
-  color: #333333;
+}
+
+.contact-container input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .contact-container .form-group {
   margin-bottom: 15px;
 }
 
-.contact-container input, textarea {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  color: #333333;
-}
-
 .contact-container textarea {
   height: 150px;
+  min-height: 150px;
   resize: vertical;
 }
 
 .contact-button {
   width: 100%;
   padding: 10px;
+  margin-top: 10px;
   background-color: #253677;
   border: none;
   border-radius: 4px;

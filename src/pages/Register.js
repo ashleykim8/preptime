@@ -2,6 +2,7 @@ import React from 'react';
 import './Register.css';
 import { useNavigate } from 'react-router-dom';
 import {useFormik} from 'formik';
+import { Link } from 'react-router-dom';
 
 function Register() {
   const navigate = useNavigate();
@@ -35,6 +36,16 @@ function Register() {
       <h2>Register</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -54,18 +65,12 @@ function Register() {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className="register-button">Register</button>
+        <button type="submit" className="register-button">CREATE ACCOUNT</button>
       </form>
+      <br></br>
+      <center>
+        Already have an account? <Link to="/login" className='login-link'>SIGN IN</Link>
+      </center>
     </div>
   );
 }
