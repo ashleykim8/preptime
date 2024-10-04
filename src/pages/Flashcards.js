@@ -9,15 +9,29 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
 
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  const [editMode, setEditMode] = useState(false);
+  const [editingFlashcardId, setEditingFlashcardId] = useState(null);
 
-  const addFlashcard = () => {
-    if (question && answer) {
+  const addOrEditFlashcard = () => {
+    if (!question || !answer) return;
+    
+    if (editMode) {
+      const updatedFlashcards = currentSet.flashcards.map((flashcard) => 
+        flashcard.id === editingFlashcardId ? { ...flashcard, question, answer } : flashcard
+      );
+      const updatedSet = { ...currentSet, flashcards: updatedFlashcards };
+      setFlashcardSets(flashcardSets.map((set) => (set.id === currentSet.id ? updatedSet : set)));
+
+      setEditMode(false);
+      setEditingFlashcardId(null);
+    } else {
       const newFlashcard = { id: Date.now(), question: question, answer: answer };
       const updatedSet = { ...currentSet, flashcards: [...currentSet.flashcards, newFlashcard] };
       setFlashcardSets(flashcardSets.map((set) => (set.id === currentSet.id ? updatedSet : set)));
-      setQuestion('');
-      setAnswer('');
     }
+
+    setQuestion('');
+    setAnswer('');
   };
 
   const deleteFlashcard = (id) => {
@@ -27,6 +41,13 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
     };
     setFlashcardSets(flashcardSets.map((set) => (set.id === currentSet.id ? updatedSet : set)));
   };
+
+  const editFlashcard = (flashcard) => {
+    setQuestion(flashcard.question);
+    setAnswer(flashcard.answer);
+    setEditMode(true);
+    setEditingFlashcardId(flashcard.id);
+  }
 
   async function submitSet() {
     await fetch(
@@ -40,7 +61,6 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
               'Content-Type': 'application/json'
           }
       })
-      console.log(currentSet)
       navigate(`/reviewflashcards/${currentSet.id}`);
   }
 
@@ -50,22 +70,26 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
 
   return (
     <div className="flashcards-container">
-      <h2>Manage Flashcards for {currentSet.name}</h2>
+      <h2>Edit Flashcards for Set {currentSet.name}</h2>
 
       <div className="add-flashcard">
         <input
           type="text"
-          placeholder="Enter question"
+          placeholder="Enter term"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
+          className="input-field"
         />
         <input
           type="text"
-          placeholder="Enter answer"
+          placeholder="Enter definition"
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
+          className="input-field"
         />
-        <button onClick={addFlashcard}>Add Flashcard</button>
+        <button onClick={addOrEditFlashcard} className="add-button">
+          {editMode ? 'Update Flashcard' : 'Add Flashcard'}
+        </button>
       </div>
 
       <div className="flashcard-list">
@@ -80,15 +104,16 @@ function Flashcards({ flashcardSets, setFlashcardSets }) {
               </div>
             </div>
             <div className="flashcard-actions">
-              <button onClick={() => deleteFlashcard(flashcard.id)}>Delete</button>
-            </div>
+              <button onClick={() => editFlashcard(flashcard)} className="edit-button">Edit</button>
+              <button onClick={() => deleteFlashcard(flashcard.id)} className="delete-button">Delete</button>
+             </div>
           </div>
         ))}
       </div>
       <div className="submit-set">
-        <button onClick={submitSet}>Submit Set</button>
+        <button onClick={submitSet} className="submit-button" >Submit Set</button>
       </div>
-      <Link to="/flashcardsets" className="backtosetslink">Back to Sets</Link>
+      <Link to="/flashcardsets" className="backtosets-link">Back to Sets</Link>
     </div>
   );
 }

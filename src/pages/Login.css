@@ -49,3 +49,7 @@
   color: #334aa6;
   font-size: 1rem;
 }
+
+.register-link:hover {
+  color: #3483c3;
+}
