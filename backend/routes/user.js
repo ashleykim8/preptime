@@ -1,4 +1,6 @@
 const express = require('express')
+const jwt = require('jsonwebtoken');
+
 let User = require('../model/User');
 
 const router = express.Router()
@@ -27,10 +29,14 @@ router.post('/login', async (req, res) => {
 
     User.findOne({username: username, password:password})
       .then((user)=>{
-        return (res.status(200).json(user));
+        delete user.password;
+
+        const token = jwt.sign(user.toObject(),process.env.JWT_SECRET_KEY, {expiresIn: "1h"})
+        res.cookie("token",token);
+        res.send("Cookie Set");
       })
       .catch((err)=>{
-        return (res.status(400).json(err));
+        return (res.status(403).json(err));
     })
   });
 

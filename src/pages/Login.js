@@ -24,12 +24,14 @@ function Login({setUser}) {
             }
         })
         //ALWAYS AWAIT PROMISES
+        /*
         const userProfile = await result.json();
         console.log(userProfile);
         setUser({username:userProfile.username,
                 password:userProfile.password,
                 email:userProfile.email
         });
+        */
         navigate('/');
     }}
 >

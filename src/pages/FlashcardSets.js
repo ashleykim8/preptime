@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './FlashcardSets.css';
 
+
+//Implement authorization, this page should only appear if you are a logged in user
 function FlashcardSets({ flashcardSets, setFlashcardSets }) {
   const [setName, setSetName] = useState('');
   const navigate = useNavigate();
