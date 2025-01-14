@@ -14,7 +14,7 @@ import UserButton from './objects/UserButton';
 
 function App(){
   const [flashcardSets, setFlashcardSets] = useState([]);
-  const [user, setUser] = useState({username:'',password:'',email:''});
+  const [user, setUser] = useState({username:'',password:''});
   return (
   <Router>
     <Navbar />

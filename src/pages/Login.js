@@ -20,19 +20,21 @@ function Login({setUser}) {
               password:values.password, 
             }),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*' 
             }
         })
-        //ALWAYS AWAIT PROMISES
-        /*
-        const userProfile = await result.json();
-        console.log(userProfile);
-        setUser({username:userProfile.username,
-                password:userProfile.password,
-                email:userProfile.email
-        });
-        */
-        navigate('/');
+        const response = JSON.parse(await result.text());
+        console.log(response);
+        if (response.type == "success"){
+          setUser({username:values.username,
+                  password:values.password,
+          });
+          navigate('/');
+        }
+        else{
+          alert(response.message);
+        }
     }}
 >
   {({ isSubmitting }) => (

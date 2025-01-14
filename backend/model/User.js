@@ -19,6 +19,9 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
+  refreshtoken: {
+    type: String,
+  },
   flashcard_ids: {
     numbers: [Number]
   }
